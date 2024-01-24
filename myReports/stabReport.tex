@@ -1,0 +1,248 @@
+%-------------------------------------------------------------------------------
+%	Packages and other Document configurations
+%-------------------------------------------------------------------------------
+\documentclass[a4paper,11pt]{article}\usepackage[]{graphicx}\usepackage[]{xcolor}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+% Package declaration
+%-------------------------------------------------------------------------------
+% Specify input encoding
+\usepackage[utf8]{inputenc}
+% For A4 paper set all margins to 3cm
+\usepackage[paper=a4paper,left=1.5cm,top=2cm,right=1.5cm,bottom=2cm]{geometry}%
+% Set linespace, usage \doublespacing \singlespacing \onehalfspacing
+\usepackage{setspace}%
+% Set palatino font with small caps as default
+\usepackage[sc]{mathpazo}%
+% Rotation tools, including rotated full-page floats.
+\usepackage{rotating}%
+% Create subfigures
+\usepackage{subfigure}%
+% Extensive support for hypertext in LaTeX
+\usepackage{hyperref}%
+% For adding bookmarks to the document
+\usepackage{bookmark}%
+% For adding time to the document
+\usepackage{datetime}
+% For alignment of captions
+\usepackage{caption}
+% For multiple columns.
+\usepackage{multicol}
+
+% Start Article header
+%-------------------------------------------------------------------------------
+% Title
+\title{Stability analysis report for grain.yield}%
+% Authors
+\author{\vspace{-5ex}}
+%-------------------------------------------------------------------------------
+% Dates
+\date{\vspace{-5ex}}
+%-------------------------------------------------------------------------------
+% End article header
+
+% For left aligning captions
+\captionsetup{justification=raggedright,singlelinecheck=false}
+
+% Start Document
+%-------------------------------------------------------------------------------
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+% Article title and date.
+\maketitle
+% Start single line spacing
+\singlespacing
+
+%-------------------------------------------------------------------------------
+\section{General information}
+%-------------------------------------------------------------------------------
+% latex table generated in R 4.3.0 by xtable 1.8-4 package
+% Fri Nov 24 08:09:32 2023
+\begin{table}[ht]
+\begin{flushleft}
+\begin{tabular}{ll}
+  Analysis done on & 23-11-24 08:05:36 \\ 
+  statgenGxE version & 1.0.5 \\ 
+  \end{tabular}
+\label{general}
+\end{flushleft}
+\end{table}
+
+
+%-------------------------------------------------------------------------------
+\section{Summary}
+%-------------------------------------------------------------------------------
+% latex table generated in R 4.3.0 by xtable 1.8-4 package
+% Fri Nov 24 08:09:32 2023
+\begin{table}[ht]
+\begin{flushleft}
+\caption{Cultivar-superiority measure (Top 10\% genotypes)} 
+\label{cultSup}
+\begin{tabular}{lrr}
+ Genotype & Mean & Superiority \\ 
+ Pa36 & 4.04 & 21.79 \\ 
+  F252 & 4.36 & 19.88 \\ 
+  CO109 & 4.73 & 17.68 \\ 
+  EA1163 & 4.68 & 17.46 \\ 
+  EP72 & 4.83 & 17.39 \\ 
+  EP10 & 4.83 & 17.31 \\ 
+  EA1027 & 4.94 & 16.61 \\ 
+  UH\_2500 & 5.01 & 16.01 \\ 
+  W9 & 5.06 & 15.60 \\ 
+  EP77 & 5.08 & 15.15 \\ 
+  NDB8 & 5.14 & 14.72 \\ 
+  W23 & 5.20 & 14.07 \\ 
+  FR19 & 5.37 & 14.07 \\ 
+  A310 & 5.65 & 13.68 \\ 
+  F218 & 5.59 & 13.48 \\ 
+  A347 & 5.49 & 13.39 \\ 
+  PB116 & 5.49 & 13.27 \\ 
+  Pa405 & 5.47 & 13.09 \\ 
+  EP67 & 5.44 & 13.06 \\ 
+  N25 & 5.44 & 12.90 \\ 
+  EP55 & 5.55 & 12.73 \\ 
+  W182E & 5.51 & 12.67 \\ 
+  LAN496 & 5.59 & 12.41 \\ 
+  F874 & 5.60 & 12.36 \\ 
+  EP51 & 5.56 & 12.31 \\ 
+  \end{tabular}
+\end{flushleft}
+\end{table}
+% latex table generated in R 4.3.0 by xtable 1.8-4 package
+% Fri Nov 24 08:09:32 2023
+\begin{table}[ht]
+\begin{flushleft}
+\caption{Static stability (Top 10\% genotypes)} 
+\label{static}
+\begin{tabular}{lrr}
+ Genotype & Mean & Static \\ 
+ Lo1251 & 9.03 & 20.77 \\ 
+  PHG83 & 7.80 & 19.17 \\ 
+  SC-Malawi & 7.13 & 18.24 \\ 
+  FR697 & 7.49 & 18.18 \\ 
+  DK78371A & 7.34 & 18.17 \\ 
+  B98 & 7.12 & 17.83 \\ 
+  Lo1106 & 8.33 & 17.46 \\ 
+  Lo1282 & 8.56 & 17.26 \\ 
+  DKMBST & 7.36 & 17.14 \\ 
+  Lo1199 & 8.25 & 16.94 \\ 
+  Lo1087 & 9.47 & 16.85 \\ 
+  Mo17 & 6.98 & 16.59 \\ 
+  Pa91 & 7.38 & 16.57 \\ 
+  Lo904 & 8.44 & 16.48 \\ 
+  Oh40B & 6.30 & 16.48 \\ 
+  Lo1284 & 7.71 & 16.44 \\ 
+  Lo1253 & 9.14 & 16.34 \\ 
+  F04702 & 6.52 & 16.22 \\ 
+  NC290 & 7.42 & 16.11 \\ 
+  PHG80 & 7.73 & 16.11 \\ 
+  PHZ51 & 8.01 & 15.88 \\ 
+  NS701 & 7.69 & 15.76 \\ 
+  F04701 & 7.17 & 15.70 \\ 
+  C103 & 6.38 & 15.34 \\ 
+  Lo1124 & 7.63 & 15.21 \\ 
+  \end{tabular}
+\end{flushleft}
+\end{table}
+% latex table generated in R 4.3.0 by xtable 1.8-4 package
+% Fri Nov 24 08:09:32 2023
+\begin{table}[ht]
+\begin{flushleft}
+\caption{Wricke's ecovalence (Top 10\% genotypes)} 
+\label{wricke}
+\begin{tabular}{lrr}
+ Genotype & Mean & Wricke \\ 
+ A310 & 5.65 & 26.02 \\ 
+  Lo1251 & 9.03 & 24.16 \\ 
+  UH\_P064 & 6.81 & 22.93 \\ 
+  Lo1270 & 8.35 & 22.25 \\ 
+  PHG83 & 7.80 & 20.08 \\ 
+  NC358 & 6.84 & 20.02 \\ 
+  F218 & 5.59 & 18.64 \\ 
+  Lo1282 & 8.56 & 18.30 \\ 
+  Oh02 & 7.18 & 17.94 \\ 
+  EP72 & 4.83 & 17.27 \\ 
+  B98 & 7.12 & 17.20 \\ 
+  NC290 & 7.42 & 17.12 \\ 
+  F7081 & 6.36 & 17.01 \\ 
+  EA1027 & 4.94 & 16.96 \\ 
+  SC-Malawi & 7.13 & 16.89 \\ 
+  Lo1056 & 7.88 & 16.73 \\ 
+  Lo1087 & 9.47 & 16.57 \\ 
+  EP10 & 4.83 & 16.46 \\ 
+  UH\_P089 & 6.81 & 16.09 \\ 
+  FR19 & 5.37 & 16.07 \\ 
+  Pa36 & 4.04 & 15.82 \\ 
+  Mo15W & 6.51 & 15.74 \\ 
+  EC151 & 6.17 & 15.31 \\ 
+  F252 & 4.36 & 15.24 \\ 
+  Lo1273 & 7.91 & 15.00 \\ 
+  \end{tabular}
+\end{flushleft}
+\end{table}
+
+
+\clearpage
+%-------------------------------------------------------------------------------
+\section{Diagnostic plots}
+%-------------------------------------------------------------------------------
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+
+\includegraphics[width=\maxwidth]{./figures/112423080932-diagplots-1} \hfill{}
+
+
+\end{knitrout}
+
+%-------------------------------------------------------------------------------
+% End Document
+\end{document}

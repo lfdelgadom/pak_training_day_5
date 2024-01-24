@@ -1,0 +1,186 @@
+%-------------------------------------------------------------------------------
+%	Packages and other Document configurations
+%-------------------------------------------------------------------------------
+\documentclass[a4paper,11pt]{article}\usepackage[]{graphicx}\usepackage[]{xcolor}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+% Package declaration
+%-------------------------------------------------------------------------------
+% Specify input encoding
+\usepackage[utf8]{inputenc}
+% For A4 paper set all margins to 3cm
+\usepackage[paper=a4paper,left=1.5cm,top=2cm,right=1.5cm,bottom=2cm]{geometry}%
+% Set linespace, usage \doublespacing \singlespacing \onehalfspacing
+\usepackage{setspace}%
+% Set palatino font with small caps as default
+\usepackage[sc]{mathpazo}%
+% Rotation tools, including rotated full-page floats.
+\usepackage{rotating}%
+% Create subfigures
+\usepackage{subfigure}%
+% Extensive support for hypertext in LaTeX
+\usepackage{hyperref}%
+% For adding bookmarks to the document
+\usepackage{bookmark}%
+% For adding time to the document
+\usepackage{datetime}
+% For alignment of captions
+\usepackage{caption}
+% For multiple columns.
+\usepackage{multicol}
+
+% Start Article header
+%-------------------------------------------------------------------------------
+% Title
+\title{Variance covariance models for multi-environment data}%
+% Authors
+\author{\vspace{-5ex}}
+%-------------------------------------------------------------------------------
+% Dates
+\date{\vspace{-5ex}}
+%-------------------------------------------------------------------------------
+% End article header
+
+% For left aligning captions
+\captionsetup{justification=raggedright,singlelinecheck=false}
+
+% Start Document
+%-------------------------------------------------------------------------------
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+% Article title and date.
+\maketitle
+% Start single line spacing
+\singlespacing
+
+%-------------------------------------------------------------------------------
+\section{General information}
+%-------------------------------------------------------------------------------
+% latex table generated in R 4.3.0 by xtable 1.8-4 package
+% Fri Nov 24 08:09:39 2023
+\begin{table}[ht]
+\begin{flushleft}
+\begin{tabular}{ll}
+  Analysis done on & 23-11-24 08:07:49 \\ 
+  statgenGxE version & 1.0.5 \\ 
+  Mixed model engine & asreml \\ 
+  \end{tabular}
+\label{general}
+\end{flushleft}
+\end{table}
+
+
+%-------------------------------------------------------------------------------
+\section{Summary}
+%-------------------------------------------------------------------------------
+% latex table generated in R 4.3.0 by xtable 1.8-4 package
+% Fri Nov 24 08:09:39 2023
+\begin{table}[ht]
+\begin{flushleft}
+\caption{Fitted models ordered by AIC} 
+\label{summary}
+\begin{tabular}{lrrrr}
+  \hline
+ & AIC & BIC & Deviance & NParameters \\ 
+  \hline
+unstructured & 2142 & 2456 & 2032 & 55 \\ 
+  fa2 & 2296 & 2462 & 2238 & 29 \\ 
+  fa & 2410 & 2524 & 2370 & 20 \\ 
+  outside & 2416 & 2478 & 2394 & 11 \\ 
+  hcs & 2776 & 2839 & 2754 & 11 \\ 
+  cs & 2792 & 2804 & 2788 & 2 \\ 
+  diagonal & 3638 & 3695 & 3618 & 10 \\ 
+  identity & 3870 & 3876 & 3868 & 1 \\ 
+   \hline
+\end{tabular}
+\end{flushleft}
+\end{table}
+
+\clearpage
+%-------------------------------------------------------------------------------
+\section{Covariance matrix}
+%-------------------------------------------------------------------------------
+\begin{table}[ht]\begin{flushleft}\caption{Covariance matrix for the best model}\resizebox{\textwidth}{!} {% latex table generated in R 4.3.0 by xtable 1.8-4 package
+% Fri Nov 24 08:09:39 2023
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+ & Cam12R & Cra12R & Gai12W & Kar12W & Kar13R & Kar13W & Mar13R & Mur13R & Mur13W & Ner12R \\ 
+  \hline
+Cam12R & 3.32e-03 & 1.86e-03 & 1.75e-03 & 1.70e-03 & 1.96e-03 & 1.89e-03 & 1.73e-03 & 2.09e-03 & 2.22e-03 & 1.31e-03 \\ 
+  Cra12R & 1.86e-03 & 2.65e-03 & 1.48e-03 & 9.75e-04 & 1.67e-03 & 1.89e-03 & 1.22e-03 & 1.74e-03 & 1.63e-03 & 9.25e-04 \\ 
+  Gai12W & 1.75e-03 & 1.48e-03 & 6.50e-03 & 3.14e-03 & 5.61e-03 & 5.11e-03 & 2.81e-03 & 4.29e-03 & 4.06e-03 & 2.43e-03 \\ 
+  Kar12W & 1.70e-03 & 9.75e-04 & 3.14e-03 & 7.82e-03 & 5.38e-03 & 4.98e-03 & 3.72e-03 & 5.13e-03 & 5.08e-03 & 2.32e-03 \\ 
+  Kar13R & 1.96e-03 & 1.67e-03 & 5.61e-03 & 5.38e-03 & 1.06e-02 & 8.68e-03 & 4.58e-03 & 6.95e-03 & 6.93e-03 & 2.97e-03 \\ 
+  Kar13W & 1.89e-03 & 1.89e-03 & 5.11e-03 & 4.98e-03 & 8.68e-03 & 1.06e-02 & 4.74e-03 & 6.79e-03 & 6.87e-03 & 2.76e-03 \\ 
+  Mar13R & 1.73e-03 & 1.22e-03 & 2.81e-03 & 3.72e-03 & 4.58e-03 & 4.74e-03 & 6.69e-03 & 4.61e-03 & 4.46e-03 & 2.43e-03 \\ 
+  Mur13R & 2.09e-03 & 1.74e-03 & 4.29e-03 & 5.13e-03 & 6.95e-03 & 6.79e-03 & 4.61e-03 & 8.50e-03 & 8.14e-03 & 2.07e-03 \\ 
+  Mur13W & 2.22e-03 & 1.63e-03 & 4.06e-03 & 5.08e-03 & 6.93e-03 & 6.87e-03 & 4.46e-03 & 8.14e-03 & 1.03e-02 & 2.00e-03 \\ 
+  Ner12R & 1.31e-03 & 9.25e-04 & 2.43e-03 & 2.32e-03 & 2.97e-03 & 2.76e-03 & 2.43e-03 & 2.07e-03 & 2.00e-03 & 3.93e-03 \\ 
+   \hline
+\end{tabular}
+}\end{flushleft}\end{table}
+
+%-------------------------------------------------------------------------------
+\section{Heatmap}
+%-------------------------------------------------------------------------------
+Heatmap for the fitted correlation between environments from the best model
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+
+\includegraphics[width=15cm]{./figures/112423080939-heatmap-1} \hfill{}
+
+
+\end{knitrout}
+
+%-------------------------------------------------------------------------------
+% End Document
+\end{document}
